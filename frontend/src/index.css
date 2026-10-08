@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #1e293b;
+    background-color: #f8fafc;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+html[data-theme='dark'] body {
+  color: #e2e8f0;
+  background-color: #0f172a;
+}
+
+html[data-theme='dark'] [class~='bg-white'] {
+  background-color: #1e293b;
+}
+
+html[data-theme='dark'] [class~='bg-slate-50'],
+html[data-theme='dark'] [class~='bg-slate-100'] {
+  background-color: #0f172a;
+}
+
+html[data-theme='dark'] [class~='bg-slate-100/70'] {
+  background-color: rgb(30 41 59 / 70%);
+}
+
+html[data-theme='dark'] [class~='bg-slate-50/50'] {
+  background-color: rgb(15 23 42 / 50%);
+}
+
+html[data-theme='dark'] [class~='text-slate-900'],
+html[data-theme='dark'] [class~='text-slate-800'] {
+  color: #f1f5f9;
+}
+
+html[data-theme='dark'] [class~='text-slate-700'],
+html[data-theme='dark'] [class~='text-slate-600'] {
+  color: #cbd5e1;
+}
+
+html[data-theme='dark'] [class~='text-slate-500'],
+html[data-theme='dark'] [class~='text-slate-400'] {
+  color: #94a3b8;
+}
+
+html[data-theme='dark'] [class~='border-slate-200'],
+html[data-theme='dark'] [class~='border-slate-200/90'],
+html[data-theme='dark'] [class~='border-slate-100'],
+html[data-theme='dark'] [class~='border-slate-100/80'] {
+  border-color: #334155;
+}
+
+html[data-theme='dark'] input,
+html[data-theme='dark'] select,
+html[data-theme='dark'] textarea {
+  color: #e2e8f0;
+  background-color: #1e293b;
+  border-color: #475569;
+}
+
+html[data-theme='dark'] input::placeholder,
+html[data-theme='dark'] textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Keep authentication field text readable even when the browser autofills it. */
+.auth-input {
+  --auth-input-background: #fff;
+  --auth-input-text: #1e293b;
+  --auth-input-placeholder: #64748b;
+  --auth-input-caret: #1e293b;
+  color: var(--auth-input-text);
+  background-color: var(--auth-input-background);
+  caret-color: var(--auth-input-caret);
+}
+
+.auth-input::placeholder {
+  color: var(--auth-input-placeholder);
+  opacity: 1;
+}
+
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--auth-input-text);
+  caret-color: var(--auth-input-caret);
+  box-shadow: 0 0 0 1000px var(--auth-input-background) inset;
+}
+
+.auth-input:autofill {
+  color: var(--auth-input-text);
+  caret-color: var(--auth-input-caret);
+  box-shadow: 0 0 0 1000px var(--auth-input-background) inset;
+}
+
+html[data-theme='dark'] .auth-input {
+  --auth-input-background: #1e293b;
+  --auth-input-text: #e2e8f0;
+  --auth-input-placeholder: #94a3b8;
+  --auth-input-caret: #e2e8f0;
+}
+
+/* Glassmorphism & Premium Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.medical-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #0d9488 100%);
+}
+
+.medical-gradient-subtle {
+  background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 50%, #f8fafc 100%);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(14, 165, 233, 0.15);
+}
+
+.glow-teal {
+  box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.4);
+}
+
+.glow-blue {
+  box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Pulse Animation for Status Badges */
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.15);
+  }
+}
+
+.animate-status-pulse {
+  animation: status-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

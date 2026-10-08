@@ -1,0 +1,12 @@
+{
+  "name": "auracare-hospital-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AuraCare Health AI Hospital Customer Support & Management System",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "frontend": "npm --prefix frontend run dev",
+    "backend": "powershell -NoExit -Command \"cd backend; .\\venv\\Scripts\\activate; uvicorn app.main:app --reload\"",
+    "build": "npm --prefix frontend run build"
+  }
+}
